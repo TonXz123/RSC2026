@@ -1,0 +1,37 @@
+/* ============================================================
+   Global CSS — WCAG 2.1 + Responsive + Accessibility
+   ============================================================ */
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif; /* ฟอนต์ที่อ่านง่าย ไม่ต้องโหลดจากเน็ต (LAN rule) */
+    color: #212529; /* contrast ratio สูง ผ่าน WCAG AA */
+}
+
+/* --- Focus Visibility: ทุกปุ่ม/input ต้องเห็น outline ชัดเจนเมื่อกด Tab (WCAG) --- */
+*:focus-visible {
+    outline: 3px solid #0d6efd; /* เส้นสีฟ้าหนา 3px */
+    outline-offset: 2px; /* เว้นระยะจาก element */
+}
+
+/* --- Validation Feedback: แสดง error ใต้ input แทน alert() --- */
+.invalid-feedback { display: block; color: #dc3545; font-size: 0.875rem; margin-top: 0.25rem; }
+.form-control.is-invalid { border-color: #dc3545; }
+.form-control.is-valid { border-color: #198754; }
+
+/* --- Responsive: ปรับ mobile 375px --- */
+@media (max-width: 576px) {
+    .container { padding-left: 12px; padding-right: 12px; }
+    h2 { font-size: 18px !important; }
+    h3 { font-size: 16px !important; }
+    h4 { font-size: 14px !important; }
+    .btn { font-size: 14px; padding: 6px 10px; }
+    .table { font-size: 13px; }
+    .card-body { padding: 12px; }
+    .navbar { padding: 8px 0; }
+}
+
+/* --- Navbar สี แยกตาม Role --- */
+.navbar.candidate { background: #e3f2fd; }
+.navbar.judge { background: #fff3e0; }
+.navbar.manager { background: #e8f5e9; }
